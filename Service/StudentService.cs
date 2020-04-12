@@ -6,23 +6,23 @@ namespace School_Management.Service
 {
     public class StudentService : IStudentService
     {
-        public IStudentRepository studentRepository;
-        public StudentService(IStudentRepository studentRepository){
+        public IGenericRepository<StudentModel> studentRepository;
+        public StudentService(IGenericRepository<StudentModel> studentRepository){
             this.studentRepository = studentRepository;
         }
 
         public void saveStudent(StudentModel student){
-            studentRepository.saveStudent(student);
+            studentRepository.saveData(student);
         }
         public List<StudentModel> getStudents(){
-            List<StudentModel> allStudent = studentRepository.getStudents();
+            List<StudentModel> allStudent = studentRepository.getData();
             return allStudent;
         }
         public void deleteStudent(StudentModel student){
-            studentRepository.deleteStudent(student);
+            studentRepository.deleteData(student);
         }
         public void updateStudent(StudentModel student){
-            studentRepository.updateStudent(student);
+            studentRepository.updateData(student);
         }
     }
 }
