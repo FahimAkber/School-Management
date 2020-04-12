@@ -1,0 +1,15 @@
+@model School_Management.Models.StudentModel;
+
+@{
+    ViewData["Title"] = "Update Student";
+}
+
+<h3>Update @Model.name</h3>
+
+<form  asp-controller="Student" asp-action="updateStudent" method="POST">
+    <input type="hidden" value="@Model.ID" name="ID"> <br>
+    <input type="text" name="name" placeholder="Enter Student's Name"> <br>
+    <input type="text" name="roll" placeholder="Enter Student's Roll"> <br>
+    <input type="text" name="classNO" placeholder="Enter Student's Class"> <br>
+    <input type="submit" name="Update Student" >
+</form>

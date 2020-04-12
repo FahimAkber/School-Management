@@ -1,0 +1,33 @@
+@model IEnumerable<School_Management.Models.StudentModel>
+
+@{
+    ViewData["Title"] = "WelCome Here";
+}
+
+<h3>Student's List</h3>
+
+<table border="1" style="width: 50%; " align="center">
+    <tr>
+        <th>Serial No</th>
+        <th>Name</th>
+        <th>Roll</th>
+        <th>Class No</th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var student in Model)
+{
+    <tr>
+        <td>@student.ID</td>
+        <td>@student.name</td>
+        <td>@student.roll</td>
+        <td>@student.classNO</td>
+        <td>
+            @Html.ActionLink("Delete", "deleteStudent", "Student", @student) 
+            @Html.ActionLink("Edit", "editStudent", "Student", @student)
+        </td>
+
+    </tr>
+}
+
+</table>
